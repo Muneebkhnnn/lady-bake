@@ -9,7 +9,8 @@ export default function StorySection() {
             src="/images/hero-img.webp"
             alt="LadyBake kitchen preparing fresh food"
             fill
-            sizes="(min-width: 1024px) 500px, 100vw"
+            sizes="(min-width: 1024px) 700px, 100vw"
+            quality={100}
             className="object-cover"
           />
         </div>
