@@ -91,9 +91,27 @@ export default function Navbar() {
         </div>
       </div>
 
-      {mobileOpen && (
-        <div className="fixed inset-0 z-50 bg-espresso/40 lg:hidden" role="dialog" aria-modal="true">
-          <div className="ml-auto flex h-full w-[86%] max-w-sm flex-col bg-cream px-6 py-6 shadow-xl">
+      <div
+        className={`fixed inset-0 z-50 lg:hidden ${
+          mobileOpen ? "pointer-events-auto" : "pointer-events-none"
+        }`}
+        role="dialog"
+        aria-modal="true"
+        aria-hidden={!mobileOpen}
+      >
+        <button
+          type="button"
+          onClick={() => setMobileOpen(false)}
+          aria-label="Close menu"
+          className={`absolute inset-0 h-full w-full bg-espresso/45 transition-opacity duration-300 ease-out ${
+            mobileOpen ? "opacity-100" : "opacity-0"
+          }`}
+        />
+        <div
+          className={`relative flex h-full w-full flex-col bg-cream px-6 py-6 shadow-2xl transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+            mobileOpen ? "translate-x-0" : "translate-x-full"
+          }`}
+        >
             <div className="flex items-center justify-between">
               <span className="flex min-w-0 items-center gap-2 text-espresso">
                 <Image
@@ -137,9 +155,8 @@ export default function Navbar() {
             >
               Order Now
             </Link>
-          </div>
         </div>
-      )}
+      </div>
     </header>
   );
 }
