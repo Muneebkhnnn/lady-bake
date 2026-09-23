@@ -1,0 +1,435 @@
+// ---------------------------------------------------------------------------
+// TEMPORARY / DEVELOPMENT MENU DATA
+// ---------------------------------------------------------------------------
+// This is intentionally the ONLY place demo image URLs and local /public
+// paths are written down. Nothing else in the app should hardcode an image
+// URL — components always go through <MenuImage /> (see
+// components/MenuImage.jsx) and lib/menu.js, which resolve, per item:
+//
+//     1. Sanity image   (production source of truth, once populated)
+//     2. Local image    (localImage below — drop a file in /public/images/menu)
+//     3. Demo image     (demoImage below — temporary Unsplash photography)
+//     4. Neutral fallback (handled inside <MenuImage />)
+//
+// Swap an item onto your own photography at any time by either adding the
+// file to /public/images/menu and setting localImage, or by adding the
+// image inside Sanity Studio — no component code needs to change either way.
+// ---------------------------------------------------------------------------
+
+const img = (id) =>
+  `https://images.unsplash.com/${id}?auto=format&fit=crop&w=1200&q=80`;
+
+export const categories = [
+  { id: "pizza", label: "Pizza" },
+  { id: "burgers", label: "Burgers" },
+  { id: "sandwiches", label: "Sandwiches" },
+  { id: "pasta", label: "Pasta" },
+  { id: "wraps", label: "Wraps" },
+  { id: "sides", label: "Sides" },
+  { id: "cakes", label: "Cakes" },
+  { id: "desserts", label: "Desserts" },
+  { id: "coffee", label: "Coffee" },
+  { id: "shakes", label: "Shakes" },
+  { id: "drinks", label: "Cold Drinks" },
+];
+
+export const demoMenuItems = [
+  // ------------------------------------------------------------ PIZZA
+  {
+    id: "pizza-margherita",
+    slug: "margherita-pizza",
+    name: "Margherita Pizza",
+    description:
+      "San Marzano tomato sauce, fresh mozzarella, and basil on our hand-stretched, wood-fired base.",
+    price: 299,
+    category: "pizza",
+    veg: true,
+    featured: true,
+    popular: true,
+    available: true,
+    localImage: "/images/menu/margherita-pizza.jpg",
+    demoImage: img("photo-1574071318508-1cdbab80d002"),
+  },
+  {
+    id: "pizza-pepperoni",
+    slug: "pepperoni-pizza",
+    name: "Pepperoni Pizza",
+    description:
+      "Loaded with spiced pepperoni and a generous layer of melted mozzarella.",
+    price: 349,
+    category: "pizza",
+    veg: false,
+    featured: true,
+    popular: true,
+    available: true,
+    localImage: "/images/menu/pepperoni-pizza.jpg",
+    demoImage: img("photo-1628840042765-356cda07504e"),
+  },
+  {
+    id: "pizza-farmhouse",
+    slug: "farmhouse-pizza",
+    name: "Farmhouse Veggie Pizza",
+    description:
+      "Bell peppers, onion, mushroom, sweetcorn, and olives over a garlic-herb base.",
+    price: 329,
+    category: "pizza",
+    veg: true,
+    featured: false,
+    popular: false,
+    available: true,
+    localImage: "/images/menu/farmhouse-pizza.jpg",
+    demoImage: img("photo-1565299624946-b28f40a0ae38"),
+  },
+
+  // ---------------------------------------------------------- BURGERS
+  {
+    id: "burger-chicken-classic",
+    slug: "classic-chicken-burger",
+    name: "Classic Chicken Burger",
+    description:
+      "Crisp-fried chicken thigh, house slaw, and smoked mayo in a toasted brioche bun.",
+    price: 249,
+    category: "burgers",
+    veg: false,
+    featured: true,
+    popular: true,
+    available: true,
+    localImage: "/images/menu/chicken-burger.jpg",
+    demoImage: img("photo-1568901346375-23c9450c58cd"),
+  },
+  {
+    id: "burger-beef-cheese",
+    slug: "double-cheese-burger",
+    name: "Double Cheese Burger",
+    description:
+      "Two grilled patties, double cheddar, pickles, and burger sauce.",
+    price: 279,
+    category: "burgers",
+    veg: false,
+    featured: false,
+    popular: true,
+    available: true,
+    localImage: "/images/menu/cheese-burger.jpg",
+    demoImage: img("photo-1550547660-d9450f859349"),
+  },
+  {
+    id: "burger-veg",
+    slug: "veg-supreme-burger",
+    name: "Veg Supreme Burger",
+    description:
+      "A crisp potato-and-peas patty with lettuce, tomato, and jalapeño mayo.",
+    price: 199,
+    category: "burgers",
+    veg: true,
+    featured: false,
+    popular: false,
+    available: true,
+    localImage: "/images/menu/veg-burger.jpg",
+    demoImage: img("photo-1550317138-10000687a72b"),
+  },
+
+  // ------------------------------------------------------- SANDWICHES
+  {
+    id: "sandwich-club",
+    slug: "chicken-club-sandwich",
+    name: "Chicken Club Sandwich",
+    description:
+      "Triple-decker with grilled chicken, egg, lettuce, and crisp bacon.",
+    price: 229,
+    category: "sandwiches",
+    veg: false,
+    featured: false,
+    popular: true,
+    available: true,
+    localImage: "/images/menu/club-sandwich.jpg",
+    demoImage: img("photo-1553909489-cd47e0ef937f"),
+  },
+  {
+    id: "sandwich-grilled-cheese",
+    slug: "grilled-cheese-sandwich",
+    name: "Grilled Cheese Sandwich",
+    description: "Three-cheese blend, butter-toasted until golden and gooey.",
+    price: 179,
+    category: "sandwiches",
+    veg: true,
+    featured: false,
+    popular: false,
+    available: true,
+    localImage: "/images/menu/grilled-cheese-sandwich.jpg",
+    demoImage: img("photo-1528736235302-52922df5c122"),
+  },
+
+  // ------------------------------------------------------------- PASTA
+  {
+    id: "pasta-alfredo",
+    slug: "creamy-alfredo-pasta",
+    name: "Creamy Alfredo Pasta",
+    description:
+      "Fettuccine tossed in a rich parmesan cream sauce with grilled chicken.",
+    price: 279,
+    category: "pasta",
+    veg: false,
+    featured: true,
+    popular: true,
+    available: true,
+    localImage: "/images/menu/alfredo-pasta.jpg",
+    demoImage: img("photo-1473093295043-cdd812d0e601"),
+  },
+  {
+    id: "pasta-arrabbiata",
+    slug: "penne-arrabbiata",
+    name: "Penne Arrabbiata",
+    description: "Penne in a fiery tomato-chilli sauce with garlic and herbs.",
+    price: 239,
+    category: "pasta",
+    veg: true,
+    featured: false,
+    popular: false,
+    available: true,
+    localImage: "/images/menu/arrabbiata-pasta.jpg",
+    demoImage: img("photo-1608897013039-887f21d8c804"),
+  },
+
+  // -------------------------------------------------------------- WRAPS
+  {
+    id: "wrap-chicken",
+    slug: "peri-peri-chicken-wrap",
+    name: "Peri-Peri Chicken Wrap",
+    description:
+      "Grilled peri-peri chicken, crunchy veg, and garlic mayo in a soft tortilla.",
+    price: 199,
+    category: "wraps",
+    veg: false,
+    featured: false,
+    popular: true,
+    available: true,
+    localImage: "/images/menu/chicken-wrap.jpg",
+    demoImage: img("photo-1626700051175-6818013e1d4f"),
+  },
+  {
+    id: "wrap-veg",
+    slug: "paneer-tikka-wrap",
+    name: "Paneer Tikka Wrap",
+    description: "Smoky tandoori paneer with mint chutney and pickled onion.",
+    price: 179,
+    category: "wraps",
+    veg: true,
+    featured: false,
+    popular: false,
+    available: true,
+    localImage: "/images/menu/paneer-wrap.jpg",
+    demoImage: img("photo-1626700051711-a7c1d3b2f2c4"),
+  },
+
+  // -------------------------------------------------------------- SIDES
+  {
+    id: "side-fries",
+    slug: "classic-french-fries",
+    name: "Classic French Fries",
+    description: "Golden and crisp, tossed with sea salt.",
+    price: 129,
+    category: "sides",
+    veg: true,
+    featured: false,
+    popular: true,
+    available: true,
+    localImage: "/images/menu/french-fries.jpg",
+    demoImage: img("photo-1573080496219-bb080dd4f877"),
+  },
+  {
+    id: "side-loaded-fries",
+    slug: "loaded-cheese-fries",
+    name: "Loaded Cheese Fries",
+    description: "Fries piled with melted cheese, jalapeños, and house sauce.",
+    price: 189,
+    category: "sides",
+    veg: true,
+    featured: false,
+    popular: false,
+    available: true,
+    localImage: "/images/menu/loaded-fries.jpg",
+    demoImage: img("photo-1585109649139-366815a0d713"),
+  },
+  {
+    id: "side-garlic-bread",
+    slug: "cheesy-garlic-bread",
+    name: "Cheesy Garlic Bread",
+    description: "Oven-baked with garlic butter and melted mozzarella.",
+    price: 159,
+    category: "sides",
+    veg: true,
+    featured: false,
+    popular: false,
+    available: true,
+    localImage: "/images/menu/garlic-bread.jpg",
+    demoImage: img("photo-1619531038896-89ebe6e5d2ba"),
+  },
+
+  // -------------------------------------------------------------- CAKES
+  {
+    id: "cake-chocolate-truffle",
+    slug: "chocolate-truffle-cake",
+    name: "Chocolate Truffle Cake",
+    description: "Rich dark-chocolate sponge layered with truffle ganache.",
+    price: 549,
+    category: "cakes",
+    veg: true,
+    featured: true,
+    popular: true,
+    available: true,
+    localImage: "/images/menu/chocolate-truffle-cake.jpg",
+    demoImage: img("photo-1606313564200-e75d5e30476c"),
+  },
+  {
+    id: "cake-red-velvet",
+    slug: "red-velvet-cake",
+    name: "Red Velvet Cake",
+    description: "Classic red velvet with cream-cheese frosting.",
+    price: 599,
+    category: "cakes",
+    veg: true,
+    featured: true,
+    popular: false,
+    available: true,
+    localImage: "/images/menu/red-velvet-cake.jpg",
+    demoImage: img("photo-1586985289906-406988974504"),
+  },
+  {
+    id: "cake-custom",
+    slug: "custom-theme-cake",
+    name: "Custom Theme Cake",
+    description:
+      "Designed to your brief — flavour, size, and decoration made to order.",
+    price: 799,
+    category: "cakes",
+    veg: true,
+    featured: false,
+    popular: false,
+    available: true,
+    localImage: "/images/menu/custom-theme-cake.jpg",
+    demoImage: img("photo-1535141192574-5d4897c12636"),
+  },
+
+  // ----------------------------------------------------------- DESSERTS
+  {
+    id: "dessert-brownie",
+    slug: "fudge-brownie",
+    name: "Fudge Brownie",
+    description: "Dense, fudgy, and served warm with a dust of cocoa.",
+    price: 149,
+    category: "desserts",
+    veg: true,
+    featured: false,
+    popular: true,
+    available: true,
+    localImage: "/images/menu/fudge-brownie.jpg",
+    demoImage: img("photo-1607920591413-4ec007e70023"),
+  },
+  {
+    id: "dessert-donut",
+    slug: "glazed-donut",
+    name: "Glazed Donut",
+    description: "Soft, pillowy, and finished with a classic sugar glaze.",
+    price: 89,
+    category: "desserts",
+    veg: true,
+    featured: false,
+    popular: false,
+    available: true,
+    localImage: "/images/menu/glazed-donut.jpg",
+    demoImage: img("photo-1551024506-0bccd828d307"),
+  },
+
+  // -------------------------------------------------------------- COFFEE
+  {
+    id: "coffee-cappuccino",
+    slug: "cappuccino",
+    name: "Cappuccino",
+    description: "Double espresso, steamed milk, and a thick layer of foam.",
+    price: 139,
+    category: "coffee",
+    veg: true,
+    featured: false,
+    popular: true,
+    available: true,
+    localImage: "/images/menu/cappuccino.jpg",
+    demoImage: img("photo-1509042239860-f550ce710b93"),
+  },
+  {
+    id: "coffee-cold",
+    slug: "cold-coffee",
+    name: "Cold Coffee",
+    description: "Chilled and blended with a scoop of vanilla ice cream.",
+    price: 159,
+    category: "coffee",
+    veg: true,
+    featured: false,
+    popular: false,
+    available: true,
+    localImage: "/images/menu/cold-coffee.jpg",
+    demoImage: img("photo-1461023058943-07fcbe16d735"),
+  },
+
+  // -------------------------------------------------------------- SHAKES
+  {
+    id: "shake-chocolate",
+    slug: "chocolate-shake",
+    name: "Chocolate Shake",
+    description: "Thick, cold, and topped with whipped cream.",
+    price: 169,
+    category: "shakes",
+    veg: true,
+    featured: true,
+    popular: true,
+    available: true,
+    localImage: "/images/menu/chocolate-shake.jpg",
+    demoImage: img("photo-1572490122747-3968b75cc699"),
+  },
+  {
+    id: "shake-strawberry",
+    slug: "strawberry-shake",
+    name: "Strawberry Shake",
+    description: "Made with real strawberries and fresh cream.",
+    price: 169,
+    category: "shakes",
+    veg: true,
+    featured: false,
+    popular: false,
+    available: true,
+    localImage: "/images/menu/strawberry-shake.jpg",
+    demoImage: img("photo-1568901346375-bef3d8f13d20"),
+  },
+
+  // -------------------------------------------------------------- DRINKS
+  {
+    id: "drink-soda",
+    slug: "chilled-soft-drink",
+    name: "Chilled Soft Drink",
+    description: "Choice of cola, lemon, or orange — served ice-cold.",
+    price: 79,
+    category: "drinks",
+    veg: true,
+    featured: false,
+    popular: false,
+    available: true,
+    localImage: "/images/menu/soft-drink.jpg",
+    demoImage: img("photo-1554866585-cd94860890b7"),
+  },
+  {
+    id: "drink-iced-tea",
+    slug: "fresh-iced-tea",
+    name: "Fresh Iced Tea",
+    description: "Brewed fresh and served over ice with a slice of lemon.",
+    price: 99,
+    category: "drinks",
+    veg: true,
+    featured: false,
+    popular: false,
+    available: true,
+    localImage: "/images/menu/iced-tea.jpg",
+    demoImage: img("photo-1499638673689-79a0b5115d87"),
+  },
+];
+
+export const getCategoryLabel = (id) =>
+  categories.find((c) => c.id === id)?.label || id;
